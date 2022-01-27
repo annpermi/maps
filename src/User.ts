@@ -1,14 +1,14 @@
+import faker from "faker";
+
 class User {
   name: string;
   location: {
     lat: number;
     lng: number;
   };
-}
 
-//install
-// npm install faker@5.5.3
-// npm install @types/faker@5.5.9
+  constructor() {}
+}
 
 /* 
 https://github.com/faker-js/faker
