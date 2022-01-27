@@ -117,10 +117,38 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/index.ts":[function(require,module,exports) {
-// import { User } from "./User";
+})({"src/CustomMap.ts":[function(require,module,exports) {
+"use strict"; //hide instance of map
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
+
+var CustomMap =
+/** @class */
+function () {
+  function CustomMap(divId) {
+    this.googleMap = new google.maps.Map(document.getElementById(divId), {
+      zoom: 1,
+      center: {
+        lat: 0,
+        lng: 0
+      }
+    });
+  }
+
+  return CustomMap;
+}();
+
+exports.CustomMap = CustomMap;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict"; // import { User } from "./User";
 // import { Company } from "./Company";
-// const user = new User();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+}); // const user = new User();
 // /*
 // location: {lat: 3.5458, lng: -66.3042}
 // name: "Raphaelle"
@@ -134,15 +162,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // console.log({ user });
 // console.log({ company });
 //npm install @types/google.maps
-//created instance of Map class
-new google.maps.Map(document.getElementById("map"), {
-  zoom: 1,
-  center: {
-    lat: 0,
-    lng: 0
-  }
-});
-},{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+var CustomMap_1 = require("./CustomMap");
+
+var map = new CustomMap_1.CustomMap("map");
+},{"./CustomMap":"src/CustomMap.ts"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
