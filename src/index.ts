@@ -17,5 +17,5 @@ location: {lat: 83.4425, lng: -75.128}
 
 const customMap = new CustomMap("map");
 
-customMap.addUserMarker(user);
-customMap.companyMarker(company);
+customMap.addMarker(user);
+customMap.addMarker(company);
