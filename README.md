@@ -2,4 +2,4 @@
 
 ## To start run: parcel index.html
 
-![Screen Shot 2022-01-26 at 23 17 37](https://user-images.githubusercontent.com/74892817/151291265-66edb9da-b3ae-4d7f-9747-8c27466a9a61.png)
+![Screen Shot 2022-01-27 at 11 54 11](https://user-images.githubusercontent.com/74892817/151406122-3d528c2e-0a28-4a71-9ac0-78d62964ecb5.png)
