@@ -24725,13 +24725,13 @@ function () {
 
 exports.Company = Company;
 },{"@faker-js/faker":"node_modules/@faker-js/faker/dist/esm/index.js"}],"src/CustomMap.ts":[function(require,module,exports) {
-"use strict";
+"use strict"; //npm install @types/google.maps
+//hide instance of map
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.CustomMap = void 0; //npm install @types/google.maps
-//hide instance of map
+exports.CustomMap = void 0;
 
 var CustomMap =
 /** @class */
@@ -24817,7 +24817,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53967" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49689" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
