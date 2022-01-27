@@ -24664,18 +24664,24 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.User = void 0;
 
-var faker_1 = __importDefault(require("@faker-js/faker"));
+var faker_1 = __importDefault(require("@faker-js/faker")); //instance of User class satisfied all the properties required by the Mappable interface
+
 
 var User =
 /** @class */
 function () {
   function User() {
+    this.color = "red";
     this.name = faker_1.default.name.firstName();
     this.location = {
       lat: parseFloat(faker_1.default.address.latitude()),
       lng: parseFloat(faker_1.default.address.longitude())
     };
   }
+
+  User.prototype.markerContent = function () {
+    return "User Name: ".concat(this.name);
+  };
 
   return User;
 }();
@@ -24712,6 +24718,7 @@ var Company =
 /** @class */
 function () {
   function Company() {
+    this.color = "green";
     this.companyName = faker_1.default.company.companyName();
     this.catchPhrase = faker_1.default.company.catchPhrase();
     this.location = {
@@ -24719,6 +24726,10 @@ function () {
       lng: parseFloat(faker_1.default.address.longitude())
     };
   }
+
+  Company.prototype.markerContent = function () {
+    return "Company Name: ".concat(this.companyName);
+  };
 
   return Company;
 }();
@@ -24747,12 +24758,20 @@ function () {
   }
 
   CustomMap.prototype.addMarker = function (mappable) {
-    new google.maps.Marker({
+    var _this = this;
+
+    var marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
+    });
+    marker.addListener("click", function () {
+      var infoWindow = new google.maps.InfoWindow({
+        content: mappable.markerContent()
+      });
+      infoWindow.open(_this.googleMap, marker);
     });
   };
 
@@ -24774,21 +24793,20 @@ var Company_1 = require("./Company");
 var CustomMap_1 = require("./CustomMap");
 
 var user = new User_1.User();
+var company = new Company_1.Company();
+var customMap = new CustomMap_1.CustomMap("map");
+customMap.addMarker(user);
+customMap.addMarker(company);
 /*
 location: {lat: 3.5458, lng: -66.3042}
 name: "Raphaelle"
 */
 
-var company = new Company_1.Company();
 /*
 catchPhrase: "Optional homogeneous application"
 companyName: "Davis, Schuppe and Reinger"
 location: {lat: 83.4425, lng: -75.128}
 */
-
-var customMap = new CustomMap_1.CustomMap("map");
-customMap.addMarker(user);
-customMap.addMarker(company);
 },{"./User":"src/User.ts","./Company":"src/Company.ts","./CustomMap":"src/CustomMap.ts"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
